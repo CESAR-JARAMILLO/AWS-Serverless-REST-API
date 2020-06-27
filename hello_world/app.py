@@ -1,9 +1,12 @@
-
 import json
-
+import boto3
 from flask_lambda import FlaskLambda
+from flask import request
 
 app = FlaskLambda(__name__)
+ddb = boto3.resource("dynamodb")
+table = ddb.Table('students')
+
 
 
 @app.route('/hello')
